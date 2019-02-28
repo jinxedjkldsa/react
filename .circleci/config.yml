@@ -46,6 +46,17 @@ jobs:
           paths:
             - node_modules
 
+  testing:
+    <<: *container_config
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: npm run testing
+      - persist_to_workspace:
+          root: ~/react
+          paths:
+            - dist
+
 
   lint:
     <<: *container_config
