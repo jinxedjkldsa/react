@@ -65,6 +65,13 @@ jobs:
       - *attach_workspace
       - run: npm run lint
 
+  jest:
+    <<: *container_config
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: npm run test
+
 
 workflows:
   version: 2
